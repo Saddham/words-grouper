@@ -1,7 +1,4 @@
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toMap;
@@ -16,10 +13,9 @@ public class Grouper {
                 .entrySet().stream()
                 .filter(group -> group.getValue().size() > 1)
                 .peek(group -> group.getValue()
-                        .sort((word, anotherWord) -> word.length() == anotherWord.length()
-                                ? word.compareTo(anotherWord)
-                                : Integer.compare(anotherWord.length(), word.length())))
-                .collect(toMap(Map.Entry::getKey , Map.Entry::getValue, (k, v) -> v, TreeMap::new));
+                        .sort(Comparator.comparing(String::length).reversed()
+                                .thenComparing(String::compareTo)))
+                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> newValue, TreeMap::new));
     }
 
     public static void main(String[] args) {

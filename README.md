@@ -1,11 +1,11 @@
 ## Test assignment for job interview invitation
 
-The original version in russian: [README-ru.md](../master/README-ru.md)
+The original version in Russian: [README-ru.md](../master/README-ru.md)
 
 ### Problem formulation
 
 Input string consists of words. All words in this string are separated by 
-single space. The string needs to be transformed to a data structure 
+a single space. The string needs to be transformed into a data structure 
 that groups words by the first letter.
 
 Then only groups that contain more than one element need to be output. 
@@ -33,7 +33,7 @@ _Such transformation can be necessary to match the output from the example.
 structures that implements `Collection` interface are converted to a string
 as `"[e1, e2, ...]"`)_
  
-2) If input string is `null` or empty then empty data structure is returned.
+2) If the input string is `null` or empty then empty data structure is returned.
 
 3) Duplicates and characters register in words are ignored.
 
